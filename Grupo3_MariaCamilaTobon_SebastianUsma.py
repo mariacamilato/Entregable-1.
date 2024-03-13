@@ -283,7 +283,7 @@ class Sistema:
     def editDisponibilidad(self,placa):
         for k, v in self.__inventarioImplantes.items():
             if k == placa:
-                v.setDisponibilidad("No disponible")
+                v.setDisponibilidad(" ¡¡¡ No disponible !!!")
 
     def verImplantesDisponibles(self):
         lista = []
@@ -296,6 +296,31 @@ class Sistema:
         lista = []
         for k,v in self.__inventarioImplantes.items():
             lista.append(k)
+            print(f'''
+            Numero de placa: {k}                              
+            Tipo de implante: {v.getTipoImplante()}
+            Marca: {v.getMarca()}
+            fecha de ingreso: {v.getFecha()}
+            tiempo de vida: {v.getTiempoVida()}
+            Estado: {v.getEstado()}
+            Medico responsable: {v.getMedico()}
+            Disponibilidad: {v.getDisponibilidad()}
+            ''')
+            if v.getTipoImplante() == "Marcapasos":
+                print(f'''
+            Numero de electrodos: {v.getNumElectrodos()}
+            Tipo de señal: {v.getAlam()}
+            Frecuencia: {v.getFrecuencia()}
+            **********************************''')
+            
+            elif v.getTipoImplante() == "Stend Coronario":
+                print(f'''
+            Longitud: {v.getLongitud()}
+            Diametro: {v.getDiametro()}
+            Tipo de Material: {v.getMaterial()}
+            **********************************''')
+    
+
     
     
 
