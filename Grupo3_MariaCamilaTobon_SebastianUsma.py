@@ -224,18 +224,62 @@ class Paciente:
 class Sistema:
     def __init__(self):
         self.__listadoPacientes={}
+        self.__inventarioImplantes={}
 
-    def agregarImplantes(self):
-        self.implantes.append(Implante)
+    def agregarPaciente(self,id,paciente):
+        self.__listadoPacientes[id] = paciente
 
-    def editarImplantes(self):
-        pass
+    def agregarImplantes(self,placa,info):
+        self.__inventarioImplantes[placa] = info
+        
+    def verificarImplante(self,placa):
+        for k, v in self.__inventarioImplantes.items():
+            if k == placa:
+                return True
+            
+    def verificarPaciente(self,id):
+        for k,v in self.__listadoPacientes.items():
+            if v.getCedula() == id:
+                return True
 
-    def eliminarImplantes(self):
-        pass
+    def setInfoGeneralImplante(self,placa):
+        marca = input("Ingrese la marca: ")
+        tiempo_vida = input("Ingrese la vida util del implante: ")
+        fecha = input("Ingrese la fecha de registro: ")
+        medico = input("Ingrese el medico responsable: ")
+        estado = input("Ingrese el estado del implante: ")
+        
+        self.__inventarioImplantes[placa].setMarca(marca)
+        self.__inventarioImplantes[placa].setTiempoVida(tiempo_vida)
+        self.__inventarioImplantes[placa].setFecha(fecha)
+        self.__inventarioImplantes[placa].setMedico(medico)
+        self.__inventarioImplantes[placa].setEstado(estado)
 
-    def VerImplantes(self):
-        pass
+    def eliminarImplantes(self,placa):
+        self.__inventarioImplantes.pop(placa)
+
+    def verPacientes(self,id):
+        for k,v in self.__listadoPacientes.items():
+            if k == id:
+                print(f'''
+                Nombre: {v.getNombre()}
+                Edad: {v.getEdad()}
+                cedula: {v.getCedula()}
+                Fecha de implantacion: {v.getFecha()}
+                ''')    
+                print("Placas de los implantes asignados:")
+               
+                for x in range(len(v.getListadoImplantes())):
+                    print(v.getListadoImplantes()[x])
+        return k,v
+
+    def getImplantes(self):
+        dic = {}
+        for k,v in self.__inventarioImplantes.items():
+            if v.getDisponibilidad() == "Disponible":
+                dic[k] = v 
+        return dic
+    
     
     
 
