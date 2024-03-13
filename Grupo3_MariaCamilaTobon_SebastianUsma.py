@@ -280,6 +280,22 @@ class Sistema:
                 dic[k] = v 
         return dic
     
+    def editDisponibilidad(self,placa):
+        for k, v in self.__inventarioImplantes.items():
+            if k == placa:
+                v.setDisponibilidad("No disponible")
+
+    def verImplantesDisponibles(self):
+        lista = []
+        for x in self.VerImplantes():
+            if self.__inventarioImplantes[x].getDisponibilidad() == "Disponible":
+                lista.append(x)
+        return lista
+
+    def VerImplantes(self):
+        lista = []
+        for k,v in self.__inventarioImplantes.items():
+            lista.append(k)
     
     
 
