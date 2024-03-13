@@ -319,6 +319,14 @@ class Sistema:
             Diametro: {v.getDiametro()}
             Tipo de Material: {v.getMaterial()}
             **********************************''')
+            
+            else:
+                print(f'''
+            Tipo de material: {v.getMaterial()}
+            Sistema de fijacion: {v.getTipoFijacion()}
+            Tamaño: {v.getTamaño()}
+            **********************************''')
+        return(lista)             
     
 
     
