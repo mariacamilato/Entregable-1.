@@ -1,4 +1,3 @@
-from datetime import datetime 
 
 class Implante:
     def __init__(self, marca, numPlaca, tipoImplante, tiempoVida, fecha, medico, estado, disponibilidad):
@@ -185,12 +184,15 @@ class Implante_Dental(Implante):
         return self.__material
 
 class Paciente:
-    def __init__(self, nombre, cedula, edad):
-        self.__nombre=nombre
-        self.__cedula=cedula
-        self.__edad=edad
+    def __init__(self):
+        self.__nombre=""
+        self.__cedula=""
+        self.__edad=""
+        self.__fecha= ""
         self.__listadoImplantes=[]
-        
+    
+    def setFecha(self, fecha):
+        self.__fecha = fecha
 
     def setNombre(self, nombre):
         self.__nombre=nombre
@@ -215,6 +217,9 @@ class Paciente:
     
     def getListadoImplantes(self):
         return self.__listadoImplantes
+    
+    def getFecha(self):
+        return self.__fecha
            
 class Sistema:
     def __init__(self):
