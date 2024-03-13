@@ -1,7 +1,7 @@
 from datetime import datetime 
 
 class Implante:
-    def __init__(self, marca, numPlaca, tipoImplante, tiempoVida, fecha, medico, estado):
+    def __init__(self, marca, numPlaca, tipoImplante, tiempoVida, fecha, medico, estado, disponibilidad):
         self.__marca=str
         self.__numPlaca=int
         self.__tipoImplante=str
@@ -9,6 +9,7 @@ class Implante:
         self.__fecha=str
         self.__medico=str
         self.__estado=str
+        self.__disponibilidad=str 
 
     def setMarca(self, marca):
         self.__marca=marca
@@ -21,8 +22,10 @@ class Implante:
     
     def setTiempoVida(self,tiempoVida):
         self.__tiempoVida=tiempoVida
-        
     
+    def setDisponibilidad(self,dis):
+        self.__disponibilidad = dis 
+        
     def setFecha(self, fecha):
         self.__fecha=fecha
     
@@ -53,9 +56,12 @@ class Implante:
     def getEstado(self):
         return self.__estado
     
+    def getDisponibilidad(self):
+        return self.__disponibilidad
+    
 class Implante_Cadera(Implante):
-    def __init__(self, marca, numPlaca, tipoImplante, tiempoVida, fecha, medico, estado, material, tipoFijacion, tamaño):
-        Implante.__init__(self, marca, numPlaca, tipoImplante, tiempoVida, fecha, medico, estado)
+    def __init__(self, marca, numPlaca, tipoImplante, tiempoVida, fecha, medico, estado, material, tipoFijacion, tamaño, disponibilidad):
+        Implante.__init__(self, marca, numPlaca, tipoImplante, tiempoVida, fecha, medico, estado, disponibilidad)
         self.__material=material
         self.__tipoFijacion=tipoFijacion
         self.__tamaño=tamaño
@@ -79,8 +85,8 @@ class Implante_Cadera(Implante):
         return self.__tamaño
 
 class Marcapasos(Implante):
-    def __init__(self, marca, numPlaca, tipoImplante, tiempoVida, fecha, medico, estado, numElectrodos, alam, frecuencia):
-        Implante.__init__(self, marca, numPlaca, tipoImplante, tiempoVida, fecha, medico, estado)
+    def __init__(self, marca, numPlaca, tipoImplante, tiempoVida, fecha, medico, estado, numElectrodos, alam, frecuencia, disponibilidad):
+        Implante.__init__(self, marca, numPlaca, tipoImplante, tiempoVida, fecha, medico, estado, disponibilidad)
         self.__numElectrodos=numElectrodos
         self.__alam=alam
         self.__frecuencia=frecuencia
@@ -104,8 +110,8 @@ class Marcapasos(Implante):
         return self.__frecuencia 
 
 class Stend_Coronario(Implante):
-    def __init__(self, marca, numPlaca, tipoImplante, tiempoVida, fecha, medico, estado, longitud, diametro, material):
-        Implante.__init__(self, marca, numPlaca, tipoImplante, tiempoVida, fecha, medico, estado)
+    def __init__(self, marca, numPlaca, tipoImplante, tiempoVida, fecha, medico, estado, longitud, diametro, material, disponibilidad):
+        Implante.__init__(self, marca, numPlaca, tipoImplante, tiempoVida, fecha, medico, estado, disponibilidad)
         self.__longitud=longitud
         self.__diametro=diametro
         self.__material=material
@@ -129,8 +135,8 @@ class Stend_Coronario(Implante):
         return self.__material 
 
 class Implante_Rodilla(Implante):
-    def __init__(self, marca, numPlaca, tipoImplante, tiempoVida, fecha, medico, estado, material, tipoFijacion, tamaño):
-        Implante.__init__(self, marca, numPlaca, tipoImplante, tiempoVida, fecha, medico, estado)
+    def __init__(self, marca, numPlaca, tipoImplante, tiempoVida, fecha, medico, estado, material, tipoFijacion, tamaño, disponibilidad):
+        Implante.__init__(self, marca, numPlaca, tipoImplante, tiempoVida, fecha, medico, estado, disponibilidad)
         self.__material=material
         self.__tipoFijacion=tipoFijacion
         self.__tamaño=tamaño
@@ -154,8 +160,8 @@ class Implante_Rodilla(Implante):
         return self.__tamaño
 
 class Implante_Dental(Implante):
-    def __init__(self, marca, numPlaca, tipoImplante, tiempoVida, forma, sistemaFijacion, material):
-        Implante.__init__(self, marca, numPlaca, tipoImplante, tiempoVida)
+    def __init__(self, marca, numPlaca, tipoImplante, tiempoVida, forma, sistemaFijacion, material, disponibilidad):
+        Implante.__init__(self, marca, numPlaca, tipoImplante, tiempoVida, disponibilidad)
         self.__forma=forma
         self.__sistemaFijacion=sistemaFijacion
         self.__material=material  
@@ -184,6 +190,7 @@ class Paciente:
         self.__cedula=cedula
         self.__edad=edad
         self.__listadoImplantes=[]
+        
 
     def setNombre(self, nombre):
         self.__nombre=nombre
