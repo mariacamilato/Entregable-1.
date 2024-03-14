@@ -331,7 +331,7 @@ class Sistema:
 def main():
     sistema = Sistema()
     while True:
-        menu=input('''\nSeleccione: 
+        menu = input('''\nSeleccione: 
                    \n1. Registro de pacientes y asignacion de implantes
                    \n2. Registro y modificacion de implantes
                    \n3. Salir 
@@ -339,12 +339,74 @@ def main():
         
         if menu == "1":
     
-            menu=input('''\nMenu de pacientes
+            menu = input('''\nMenu de pacientes
                     \nSeleccione: 
                     \n1. Ingresar un nuevo paciente
                     \n2. Buscar un paciente por su ID
                     \n3. Salir 
                     \n>>>''')
+            
+            if menu == "1":
+                if len(sistema.getImplantes()) == 0:
+                    print("Aun no se encuentran implantes disponibles para asignar a los pacientes")
+                    continue
+
+                else:
+                    paciente = Paciente()
+                    nombre = input("Ingrese el nombre del paciente\n")
+                    while True:
+                        cedula = input("Ingrese la cedula del paciente\n")
+                        if sistema.verificarPaciente(cedula) == True:
+                            print("Esta cedula ya se encuentra registrada")
+                        else:
+                            break
+                    edad = input("Ingrese la edad del paciente\n")
+                    fecha = input("Ingrese la fecha de implantacion\n")
+
+                    paciente.setNombre(nombre)
+                    paciente.setCedula(cedula)
+                    paciente.setEdad(edad)
+                    paciente.setFecha(fecha)
+
+                    while True:
+                        if len(sistema.getImplantes()) == 0:
+                            print("Se ha dispueto ya de todos los implantes, agregue un nuevo implante\n")
+                            break
+                        else:
+                            lista = []
+                            list_implantes = sistema.verImplantesDisponibles()
+                        
+                            while True:
+                                asigImplante = input("Ingrese la placa de los uno de los implantes disponibles para asignarlo al paciente: ")
+                                if asigImplante not in list_implantes:
+                                    print("El implante no se encuentra en la lista o no esta disponible")
+                                else:
+                                    lista.append(asigImplante)
+                                    sistema.editDisponibilidad(asigImplante)
+                                    break
+                            bucle = input("Desea ingresar asignar otro implante?: \n1.Si\n2.No\n")
+                            if bucle == "1":
+                                continue
+                            elif bucle == "2":
+                                break
+                            else:
+                                print("Opcion No disponible\n")
+
+    
+               
+                paciente.setListadoImplantes(lista)
+                sistema.agregarPaciente(cedula,paciente)
+            
+            elif menu == "2":
+                id = input("Ingrese la cedula del paciente: ")
+                if sistema.verificarPaciente(id) == True:
+                    sistema.verPacientes(id)
+                else:
+                    print("El paciente no se encuentra en el sistema")
+
+            elif menu == "3":
+                break
+                
             
     
 
