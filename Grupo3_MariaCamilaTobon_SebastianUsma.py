@@ -397,15 +397,6 @@ def main():
                 paciente.setListadoImplantes(lista)
                 sistema.agregarPaciente(cedula,paciente)
             
-            elif menu == "2":
-                id = input("Ingrese la cedula del paciente: ")
-                if sistema.verificarPaciente(id) == True:
-                    sistema.verPacientes(id)
-                else:
-                    print("El paciente no se encuentra en el sistema")
-
-            elif menu == "3":
-                break
                 
         elif menu == "2":
             while True:
@@ -516,7 +507,15 @@ def main():
 
                 else:
                     print("Opcion no disponible\n")
-    
+            
+        elif menu =="3":
+            exit()
+        
+        else:
+            print("Opcion no disponible\n")
+
+if __name__ == "__main__":
+    main()
     
 
 
