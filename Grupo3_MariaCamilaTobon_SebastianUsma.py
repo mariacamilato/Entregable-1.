@@ -328,6 +328,15 @@ class Sistema:
             **********************************''')
         return(lista)             
     
+def main():
+    sistema = Sistema()
+    while True:
+        menu=input('''\nSeleccione: 
+                   \n1. Registro de pacientes y asignacion de implantes
+                   \n2. Registro y modificacion de implantes
+                   \n3. Salir 
+                   \n>>>''')
+    
 
     
     
