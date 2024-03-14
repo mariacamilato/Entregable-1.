@@ -492,6 +492,14 @@ def main():
                         tipo = Implante_Cadera(marca,num_Placa,tipoImplante,tiempo_vida,fecha,medico,estado,material,tip_fijacion,tamano,disponibilidad)
 
                     sistema.agregarImplantes(num_Placa,tipo)
+                
+                elif menu == "2":
+                    placa = input("Ingrese la placa del implante que desea eliminar: ")
+                    if sistema.verificarImplante(placa) == True:
+                        sistema.eliminarImplantes(placa)
+                        print("Placa Eliminada correctamente")
+                    else:
+                        print("No se encuentra el implante en el sistema")
     
     
 
