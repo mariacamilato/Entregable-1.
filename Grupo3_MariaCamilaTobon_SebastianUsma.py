@@ -500,6 +500,22 @@ def main():
                         print("Placa Eliminada correctamente")
                     else:
                         print("No se encuentra el implante en el sistema")
+
+                elif menu == "3":
+                    placa = input("Ingrese la placa del implante que desea editar: ")
+                    if sistema.verificarImplante(placa) == True:
+                        sistema.setInfoGeneralImplante(placa)
+                    else:
+                        print("No se encuentra el implante en el sistema")
+
+                elif menu == "4":
+                    sistema.VerImplantes()
+                        
+                elif menu == "5":
+                    break
+
+                else:
+                    print("Opcion no disponible\n")
     
     
 
