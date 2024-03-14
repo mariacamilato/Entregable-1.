@@ -407,7 +407,16 @@ def main():
             elif menu == "3":
                 break
                 
-            
+        elif menu == "2":
+            while True:
+                menu=input('''\nMenu de implantes
+                    \nSeleccione: 
+                    \n1. Agregar nuevo implante
+                    \n2. Eliminar implante
+                    \n3. Editar informacion de un implante
+                    \n4. Visualizar inventario completo
+                    \n5. Salir 
+                    \n>>>''')
     
 
     
