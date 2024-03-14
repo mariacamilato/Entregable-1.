@@ -336,6 +336,16 @@ def main():
                    \n2. Registro y modificacion de implantes
                    \n3. Salir 
                    \n>>>''')
+        
+        if menu == "1":
+    
+            menu=input('''\nMenu de pacientes
+                    \nSeleccione: 
+                    \n1. Ingresar un nuevo paciente
+                    \n2. Buscar un paciente por su ID
+                    \n3. Salir 
+                    \n>>>''')
+            
     
 
     
