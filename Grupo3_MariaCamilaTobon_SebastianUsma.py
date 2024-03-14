@@ -418,7 +418,80 @@ def main():
                     \n5. Salir 
                     \n>>>''')
     
+                if menu == "1":
+                    tipo = input('''\nSeleccion el tipo de implante
+                                \n1. Marcapasos
+                                \n2. Stent coronario
+                                \n3. Implante dental
+                                \n4. Implante de rodilla
+                                \n5. Implante de cadera   
+                                \n''')
+                    
+                    marca = input("Ingrese la marca: ")
+                    while True:
+                        num_Placa = input("Ingrese el numero de placa: ")
+                        if sistema.verificarImplante(num_Placa) == True:
+                            print("Esta placa ya se encuentra en el sistema, por favor ingresar otra")
+                        else:
+                            break
 
+                    
+                    tiempo_vida = input("Ingrese la vida util del implante: ")
+                    fecha = input("Ingrese la fecha de registro: ")
+                    medico = input("Ingrese el medico responsable: ")
+                    estado = input("Ingrese el estado del implante: ")
+                    disponibilidad = "Disponible"
+
+                    if tipo != "1":
+                        material = input("Ingrese el material del implante: ")
+
+                        if tipo == "2":
+                            longitud= input("Ingrese la longitud del implante: ")
+                            diametro = input("Ingrese el diametro del implante: ")
+
+                        elif tipo == "3":
+                            forma = input("Ingrese la forma del implante: ")
+                            sis_fijacion = input("Ingrese el sistema de fijacion: ")
+                        
+                        elif tipo == "4" or tipo == "5":
+                            tip_fijacion = input("Ingrese el tipo de fijacion: ")
+                            tamano = input("Ingrese el tamaño del implante: ")
+
+
+
+                    if tipo == "1":
+                        tipoImplante = "Marcapasos"
+                        numElectrodos = input("Ingrese el numero de electrodos: ")
+                        while True:
+                            senal = input("Seleccione:\n1. Alambrico\n2. Inalambrico\n")
+                            if senal == "1":
+                                senal = "Alambrico"
+                                break
+                            elif senal == "2":
+                                senal = "inalambrico"
+                                break
+                            else:
+                                print("Opcion no disponible")
+                        frec_est = input("Ingrese la frecuencia de estimulacion: ")
+                        tipo = Marcapasos(marca,num_Placa,tipoImplante,tiempo_vida,fecha,medico,estado,numElectrodos,senal,frec_est,disponibilidad)
+
+                    elif tipo == "2":
+                        tipoImplante = "Stend Coronario"
+                        tipo = Stend_Coronario(marca,num_Placa,tipoImplante,tiempo_vida,fecha,medico,estado,longitud,diametro,material,disponibilidad)
+                    
+                    elif tipo == "3":
+                        tipoImplante = "Implante Dental"
+                        tipo = Implante_Dental(marca,num_Placa,tipoImplante,tiempo_vida,fecha,medico,estado,forma,sis_fijacion,material,disponibilidad)
+
+                    elif tipo == "4":
+                        tipoImplante = "Implante de Rodilla"
+                        tipo = Implante_Rodilla(marca,num_Placa,tipoImplante,tiempo_vida,fecha,medico,estado,material,tip_fijacion,tamano,disponibilidad)
+                    
+                    elif tipo == "5":
+                        tipoImplante = "Implante de Cadera"
+                        tipo = Implante_Cadera(marca,num_Placa,tipoImplante,tiempo_vida,fecha,medico,estado,material,tip_fijacion,tamano,disponibilidad)
+
+                    sistema.agregarImplantes(num_Placa,tipo)
     
     
 
